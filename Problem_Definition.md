@@ -74,22 +74,9 @@ The goal is to generate a timetable that minimizes the overall scheduling confli
     - A **teacher** that can teach the **course**'s subject.
         - The **teacher** must be available. He can't give two courses at the same time.
         - The **teacher** may have preferred teaching time or days. The **schedule** should try to accomodate these perferences as much as possible.
-     
-- Constraints on Scheduling:
-    - Amphitheaters can host multiple classes simultaneously, unlike other rooms.
-    - Teachers' availability, preferences, and ability to teach specific subjects must be respected to optimize their workload and satisfaction.
 
 - Room and Resource Allocation:
     - Scheduling must allocate regular or special rooms (e.g., labs or amphitheaters) based on course requirements.
     - Ensure adequate use of room resources while preventing overbooking or misuse of special-purpose spaces.
-
-- Hybrid and Online Learning Rules:
-    - Online teaching hours must not exceed 30% of the total hours for any subject.
-    - Courses requiring practical or in-person elements must prioritize physical attendance while adhering to the capacity constraints.
-
-- Student-Centric Considerations:
-    - Balance academic workload across subjects to prevent excessive or uneven scheduling.
-    - Include at least one free daily meal slot per student group and ensure equitable access to all teaching formats.
-    No courses from 8:15 to 20:15 non-stop. 
 
 
