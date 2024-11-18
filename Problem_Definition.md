@@ -5,6 +5,7 @@
 
 ### Title: Timetable Planning under New Constraints
 
+
 ### Description: 
 The disruptions caused by the COVID-19 pandemic have introduced new constraints in managing several complex problems of daily life. 
 Among these, work schedule planning, an NP-hard optimization problem, has been particularly affected. This type of problem appears in 
@@ -22,6 +23,10 @@ The student will begin by conducting a literature review on the problem and then
 Finally, tests will be conducted on a dataset to evaluate the solution and test its robustness.
 
 
+## Objective
+The goal is to generate a timetable that minimizes the overall scheduling conflicts while satisfying the above constraints. The solution should also optimize resource utilization (rooms, teachers) and balance the workload across all stakeholders (teachers and students).
+
+
 ## Problem Definition:
 
 - Our university has:
@@ -35,10 +40,12 @@ Finally, tests will be conducted on a dataset to evaluate the solution and test 
         - **n** classes (= group of students)
         To each class, we assign:
             - **s** subjects (= materials) the class has to attend.
+              
 - Each of the **s** subjects has:
     - A fixed number of hours **h** to be completed.
     - The **h** hours are divided in **online_hours** and **presential_hours**.
     - We need to make sure that **online_hours** <= (30%) * **h**
+      
 - To complete the **h** hours:
     - One course duration is 1h30.
     - A class can attend as many **courses** as required to attend the **h** hours.
@@ -46,6 +53,7 @@ Finally, tests will be conducted on a dataset to evaluate the solution and test 
     - Two different classes can't attend the same **course** in the same **room** on the same **timeslot**
         - An exception is made for **courses** taking place in **amphitheatres**
     - One class can't have two **courses** in the same **timeslot**
+      
 - The **courses** can take place in defined **timeslots** each day.
     - **Timeslots** are defined as follows:
         - 08:15 to 09:45
@@ -59,13 +67,29 @@ Finally, tests will be conducted on a dataset to evaluate the solution and test 
     - Students must have at least one free slot a day. Either 11:45 to 13:15 or 13:30 to 15:00. This is to ensure they can eat.
     - **Courses** can be either **online** or **presential**. Respecting the previous condition regarding total amount of online hours.
     - Certain **courses** may require specific time slots due to logisitcal reasons. (e.g. lab courses requiring 3h sessions, thus, two back-to-back **timeslots**)
+      
 - To take place, each **course** needs:
     - An available room. (= A room where there is no course taking place)
     - A corresponding **class**
     - A **teacher** that can teach the **course**'s subject.
         - The **teacher** must be available. He can't give two courses at the same time.
         - The **teacher** may have preferred teaching time or days. The **schedule** should try to accomodate these perferences as much as possible.
+     
+- Constraints on Scheduling:
+    - Amphitheaters can host multiple classes simultaneously, unlike other rooms.
+    - Teachers' availability, preferences, and ability to teach specific subjects must be respected to optimize their workload and satisfaction.
+
+- Room and Resource Allocation:
+    - Scheduling must allocate regular or special rooms (e.g., labs or amphitheaters) based on course requirements.
+    - Ensure adequate use of room resources while preventing overbooking or misuse of special-purpose spaces.
+
+- Hybrid and Online Learning Rules:
+    - Online teaching hours must not exceed 30% of the total hours for any subject.
+    - Courses requiring practical or in-person elements must prioritize physical attendance while adhering to the capacity constraints.
+
+- Student-Centric Considerations:
+    - Balance academic workload across subjects to prevent excessive or uneven scheduling.
+    - Include at least one free daily meal slot per student group and ensure equitable access to all teaching formats.
+    No courses from 8:15 to 20:15 non-stop. 
 
 
-## Objective
-The goal is to generate a timetable that minimizes the overall scheduling conflicts while satisfying the above constraints. The solution should also optimize resource utilization (rooms, teachers) and balance the workload across all stakeholders (teachers and students).
