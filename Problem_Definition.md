@@ -24,7 +24,7 @@ Finally, tests will be conducted on a dataset to evaluate the solution and test 
 
 ## Problem Definition:
 
-Our university has:
+- Our university has:
     - A given **r** number of rooms. Each room might be a **special room**.
         - **Special rooms** are rooms with specific furnitures. For instance lab furnitures are in **lab** rooms. **Lab** rooms are considered as a **special room**.
         - Rooms that aren't **special rooms** are refered too as **rooms**.
@@ -35,21 +35,18 @@ Our university has:
         - **n** classes (= group of students)
         To each class, we assign:
             - **s** subjects (= materials) the class has to attend.
-
-Each of the **s** subjects has:
+- Each of the **s** subjects has:
     - A fixed number of hours **h** to be completed.
     - The **h** hours are divided in **online_hours** and **presential_hours**.
     - We need to make sure that **online_hours** <= (30%) * **h**
-
-To complete the **h** hours:
+- To complete the **h** hours:
     - One course duration is 1h30.
     - A class can attend as many **courses** as required to attend the **h** hours.
     - Some **courses** need to take place in special rooms depending on the **course**'s format. (For example practical works need to be in labs)
     - Two different classes can't attend the same **course** in the same **room** on the same **timeslot**
         - An exception is made for **courses** taking place in **amphitheatres**
     - One class can't have two **courses** in the same **timeslot**
-
-The **courses** can take place in defined **timeslots** each day.
+- The **courses** can take place in defined **timeslots** each day.
     - **Timeslots** are defined as follows:
         - 08:15 to 09:45
         - 10:00 to 11:30
@@ -62,9 +59,7 @@ The **courses** can take place in defined **timeslots** each day.
     - Students must have at least one free slot a day. Either 11:45 to 13:15 or 13:30 to 15:00. This is to ensure they can eat.
     - **Courses** can be either **online** or **presential**. Respecting the previous condition regarding total amount of online hours.
     - Certain **courses** may require specific time slots due to logisitcal reasons. (e.g. lab courses requiring 3h sessions, thus, two back-to-back **timeslots**)
-
-
-To take place, each **course** needs:
+- To take place, each **course** needs:
     - An available room. (= A room where there is no course taking place)
     - A corresponding **class**
     - A **teacher** that can teach the **course**'s subject.
