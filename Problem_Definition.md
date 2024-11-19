@@ -34,7 +34,7 @@ The goal is to generate a timetable that minimizes the overall scheduling confli
         - **Special rooms** are rooms with specific furnitures. For instance lab furnitures are in **lab** rooms. **Lab** rooms are considered as a **special room**.
         - Rooms that aren't **special rooms** are refered too as **rooms**.
         - **Amphitheatres** are considered as **special rooms**.
-    -A given **t** amount of teachers. Each teacher has one or more corresponding subjects he/she can teach.
+    - A given **t** amount of teachers. Each teacher has one or more corresponding subjects he/she can teach.
     - **N** promotions (= year the student is on).
     Each promotion has:
         - **n** classes (= group of students)
@@ -63,7 +63,7 @@ The goal is to generate a timetable that minimizes the overall scheduling confli
         - 15:15 to 16:45
         - 17:00 to 18:30
         - 18:45 to 20:15
-    - No **course** can be scheduled on saturday and thursday afternoon (from 13:30 to 20:15)
+    - No **course** can be scheduled on saturday and thursday afternoon (from 13:30 to 20:15). No **course** ca be scheduled on Sunday.
     - Students must have at least one free slot a day. Either 11:45 to 13:15 or 13:30 to 15:00. This is to ensure they can eat.
     - **Courses** can be either **online** or **presential**. Respecting the previous condition regarding total amount of online hours.
     - Certain **courses** may require specific time slots due to logisitcal reasons. (e.g. lab courses requiring 3h sessions, thus, two back-to-back **timeslots**)
