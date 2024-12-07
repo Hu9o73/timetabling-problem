@@ -36,7 +36,7 @@
 
         - Let $h_s$ the number of hours that must be completed as part of this course and $h_{s_a}$ the currently attributed hours for this subject.
 
-        - Let $t_{s_i} , \forall i \in \mathbb{N} $ be a timeslot attributed to subject $s$. $h_{s_a}$ is defined as:
+        - Let $t_{s_i} , \forall i \in \mathbb{N}$ be a timeslot attributed to subject $s$. $h_{s_a}$ is defined as:
 
             $$h_{s_a} = \sum_{i=0}^{h_s} t_{s_i}$$
         
