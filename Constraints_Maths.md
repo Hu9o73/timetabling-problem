@@ -54,14 +54,14 @@
     - One course duration is 1h30.
         - Let $t_i$ be an assignated timeslot. We must ensure that:
 
-        $$ \frac{\sum_{i=0} t_i}{1.5} = k , k\in\mathbb{N}$$
+        $$\frac{\sum_{i=0} t_i}{1.5} = k , k\in\mathbb{N}$$
 
 
     - A class can attend as many **courses** as required to attend the **h** hours.
 
         - Reminder : $h_s$ is the number of hours that must be completed as part of a course. Thus:
 
-        $$h_s \in [0; +\infty[$$
+        $$h_s \in \mathbb{R}^+$$
 
     - Some **courses** need to take place in special rooms depending on the **course**'s format. (For example practical works need to be in labs)
     - Two different classes can't attend the same **course** in the same **room** on the same **timeslot**
