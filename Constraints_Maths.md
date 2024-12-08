@@ -64,9 +64,30 @@
         $$h_s \in \mathbb{R}^+$$
 
     - Some **courses** need to take place in special rooms depending on the **course**'s format. (For example practical works need to be in labs)
+
+        - Let $r_i$ denote a specific room and $s$ denote a course.
+        - Define $R_{special}$ as the set of all special rooms, and $S_{special}$ as the set of all courses requiring special rooms.
+        - For each course $s\in S_{special}, \exists r_i \in R_{special}$ such that:
+
+        $$s := r_i \Longrightarrow r_i \in R_{special}$$
+
     - Two different classes can't attend the same **course** in the same **room** on the same **timeslot**
-        - An exception is made for **courses** taking place in **amphitheatres**
+        - Let $T(r_i)$ be the set of timeslots assigned to room $r_i$ and let $S(t_i,r_i)$ be the set of courses assigned to room $r_i$ on timeslot $t_i$ :
+
+        $$\forall t_i \in T(r_i), \left|S(t_i,r_i)\right| \le 1$$
+
+    - An exception is made for **courses** taking place in **amphitheatres**
+        - Let $A$ be the set of all amphitheatres.
+        - Let $T(r_i \in A)$ be the set of timeslots assigned to room $r_i$, $r_i$ being an amphitheatre.
+        - Let $S(t_i,r_i)$ be the set of courses assigned to room $r_i$ on timeslot $t_i$.
+
+        $$\forall t_i \in T(r_i \in A), \left|S(t_i, r_i)\right| < +\infty$$
+
     - One class can't have two **courses** in the same **timeslot**
+        - Let $T(c_k)$ be the set of timelsots assigned to class $c_k$.
+        - Let $S(t_i,c_l)$ be the set of courses assigned to class $c_k$ on timeslot $t_i$.
+
+        $$t_i \in T(c_k), \left|S(t_i,r_i)\right| \le 1$$
       
 - The **courses** can take place in defined **timeslots** each day.
     - **Timeslots** are defined as follows:
@@ -78,16 +99,45 @@
         - 17:00 to 18:30
         - 18:45 to 20:15
     - No **course** can be scheduled on saturday and thursday afternoon (from 13:30 to 20:15). No **course** ca be scheduled on Sunday.
+        - Let $T_{sunday}$ be the set of timeslots on sunday.
+        - Let $T_{thursday_{afternoon}}$ be the set of timeslots on thursday afternoon (from 13:30 to 20:15).
+        - Let $T_{saturday_{afternoon}}$ be the set of timeslots on saturday afternoon (from 13:30 to 20:15).
+        - We define $T_{restricted}$ as $T_{restricted} = \{T_{sunday},  T_{thursday_{afternoon}}, T_{saturday_{afternoon}}\}$
+        - Let $T$ be the set of all timeslots.
+
+        $$\forall t_i \in T , t_i \notin T_{restricted}$$
+
     - Students must have at least one free slot a day. Either 11:45 to 13:15 or 13:30 to 15:00. This is to ensure they can eat.
+        - Let $T_{lunch} = \{(11:45, 13:15), (13:30, 15:00) \}$
+        - Let $T(c_k)$ be the set of timelsots assigned to class $c_k$.
+
+        $$\forall t_i \in T(c_k): \exists t_i \in T_{lunch}, t_i \notin T(c_k)$$
+
     - **Courses** can be either **online** or **presential**. Respecting the previous condition regarding total amount of online hours.
     - Certain **courses** may require specific time slots due to logisitcal reasons. (e.g. lab courses requiring 3h sessions, thus, two back-to-back **timeslots**)
+        - Let $T_{adjacent} = \{(t_i, t_{i+1})\}$:
+        - Let $T(s)$ be the set of timeslots assigned to course $s$. 
+        - If $s$ requires 3 hours:
+
+        $$\forall (t_i, t_{i+1}) \in T(s) : (t_i, t_{i+1}) \in T_{adjacent}$$
       
 - To take place, each **course** needs:
     - An available room. (= A room where there is no course taking place)
     - A corresponding **class**
     - A **teacher** that can teach the **course**'s subject.
         - The **teacher** must be available. He can't give two courses at the same time.
+            - Let $T(t_j)$ be the set of timelsots assigned to teacher $t_j$.
+            - Let $S(t_i,c_k)$ be the set of courses assigned to class $c_k$ on timeslot $t_i$.
+
+            $$t_i \in T(t_j), \left|S(t_i,t_j)\right| \le 1$$
+
+
         - The **teacher** may have preferred teaching time or days. The **schedule** should try to accomodate these perferences as much as possible.
+            - Let $P(t_j)$ the set of preferred timeslots for teacher $t_j$. 
+            - Let $T(t_j)$ be the set of timeslots assigned to teacher $t_j$.
+            - Given $\forall t_i \in T(t_j)$, minimize:
+
+            $$C_{preferrence} = \sum_{t_i \notin P(t_j)} 1$$
 
 - Room and Resource Allocation:
     - Scheduling must allocate regular or special rooms (e.g., labs or amphitheaters) based on course requirements.
